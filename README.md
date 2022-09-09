@@ -1,6 +1,14 @@
 # olcNES
 NES Emulator, and Tutorial Video Code
 
+# Required Packages
+
+
+## Ubuntu
+```
+sudo apt install build-essential libglu1-mesa-dev libpng-dev libasound2-dev
+```
+
 # License (OLC-3)
 Copyright 2018, 2019, 2020, 2021 OneLoneCoder.com
 
