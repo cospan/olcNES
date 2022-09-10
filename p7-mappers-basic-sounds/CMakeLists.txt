@@ -56,6 +56,7 @@ target_link_libraries(
 		"png"
 		"stdc++fs"
     "asound"
+    "yaml-cpp"
 		)
 
 #MESSAGE (STATUS "Building Part 2")

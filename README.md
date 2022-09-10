@@ -9,6 +9,28 @@ NES Emulator, and Tutorial Video Code
 sudo apt install build-essential libglu1-mesa-dev libpng-dev libasound2-dev
 ```
 
+# To Build
+
+Create a directory called 'build'
+```
+mkdir build
+```
+
+Move into that directory and run 'cmake' then make the project
+```
+cd build
+cmake ..
+make -j8
+```
+
+The resulting binaries will be in the corresponding sub directory.
+
+You can configure the ROM to run using the `config.yaml` file in the base directory.
+
+The legal roms should be located inside the directory in the base directory
+
+
+
 # License (OLC-3)
 Copyright 2018, 2019, 2020, 2021 OneLoneCoder.com
 

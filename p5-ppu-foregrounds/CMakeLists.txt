@@ -33,6 +33,7 @@ target_link_libraries(
 		"GL"
 		"png"
 		"stdc++fs"
+    "yaml-cpp"
 		)
 
 #MESSAGE (STATUS "Building Part 2")

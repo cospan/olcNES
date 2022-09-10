@@ -1,0 +1,3 @@
+rom: "../../test-roms/nestest.nes"
+#rom: "../../roms/super_mario_bros.nes"
+#rom: "../../roms/donkey_kong.nes"

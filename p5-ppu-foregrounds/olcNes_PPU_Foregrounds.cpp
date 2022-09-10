@@ -63,6 +63,10 @@
 #define OLC_PGE_APPLICATION
 #include "olcPixelGameEngine.h"
 
+#include "yaml-cpp/yaml.h"
+
+#define DEFAULT_CONFIG_FILE "../../config.yaml"
+
 
 
 class Demo_olc2C02 : public olc::PixelGameEngine
@@ -70,7 +74,7 @@ class Demo_olc2C02 : public olc::PixelGameEngine
 public:
 	Demo_olc2C02() { sAppName = "olc2C02 Demonstration"; }
 
-private: 
+private:
 	// The NES
 	Bus nes;
 	std::shared_ptr<Cartridge> cart;
@@ -79,7 +83,7 @@ private:
 
 	uint8_t nSelectedPalette = 0x00;
 
-private: 
+private:
 	// Support Utilities
 	std::map<uint16_t, std::string> mapAsm;
 
@@ -161,14 +165,15 @@ private:
 	bool OnUserCreate()
 	{
 		// Load the cartridge
-		cart = std::make_shared<Cartridge>("roms/nestest.nes");
-		
+    YAML::Node config = YAML::LoadFile(DEFAULT_CONFIG_FILE);
+		cart = std::make_shared<Cartridge>(config["rom"].as<std::string>());
+
 		if (!cart->ImageValid())
 			return false;
 
 		// Insert into NES
 		nes.insertCartridge(cart);
-					
+
 		// Extract dissassembly
 		mapAsm = nes.cpu.disassemble(0x0000, 0xFFFF);
 
@@ -249,9 +254,9 @@ private:
 		const int nSwatchSize = 6;
 		for (int p = 0; p < 8; p++) // For each palette
 			for(int s = 0; s < 4; s++) // For each index
-				FillRect(516 + p * (nSwatchSize * 5) + s * nSwatchSize, 340, 
+				FillRect(516 + p * (nSwatchSize * 5) + s * nSwatchSize, 340,
 					nSwatchSize, nSwatchSize, nes.ppu.GetColourFromPaletteRam(p, s));
-		
+
 		// Draw selection reticule around selected palette
 		DrawRect(516 + nSelectedPalette * (nSwatchSize * 5) - 1, 339, (nSwatchSize * 4), nSwatchSize, olc::WHITE);
 

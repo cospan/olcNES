@@ -71,7 +71,7 @@
 
 class Cartridge
 {
-public:	
+public:
 	Cartridge(const std::string& sFileName);
 	~Cartridge();
 
@@ -79,7 +79,7 @@ public:
 public:
 	bool ImageValid();
 
-	
+
 
 private:
 	bool bImageValid = false;

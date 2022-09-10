@@ -7,8 +7,10 @@ project(NES)
 include_directories(
     "${CMAKE_SOURCE_DIR}/submodules/olcPixelGameEngine/Extensions"
     "${CMAKE_SOURCE_DIR}/submodules/olcPixelGameEngine"
+		"${CMAKE_SOURCE_DIR}/submodules/yaml-cpp/include"
 		)
 
+add_subdirectory("${CMAKE_SOURCE_DIR}/submodules/yaml-cpp")
 
 add_subdirectory("${CMAKE_SOURCE_DIR}/p2-cpu")
 add_subdirectory("${CMAKE_SOURCE_DIR}/p3-buses-ramps-roms-mappers")
